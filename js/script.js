@@ -7,8 +7,6 @@ var productDescInput = document.getElementById("productDescInput");
 var mainBtn = document.getElementById("mainBtn");
 
 
-var alertContainer=document.getElementById("alertContainer");
-alertContainer.style.display="none";
 
 var productsContainer;
 
@@ -27,22 +25,20 @@ function addProduct()
 {
     if(mainBtn.innerHTML == "add Product")
     {
-        if (isValid()==true)
+        
+        var product = 
         {
-            var product = 
-            {
-                name:productNameInput.value,
-                price:productPriceInput.value,
-                category:productCategoryInput.value,
-                desc:productDescInput.value
-            }
-
-            productsContainer.push(product);
-            localStorage.setItem("myProducts", JSON.stringify(productsContainer));
-
-            clearProduct();
-            displayProducts(productsContainer);
+            name:productNameInput.value,
+            price:productPriceInput.value,
+            category:productCategoryInput.value,
+            desc:productDescInput.value
         }
+
+        productsContainer.push(product);
+        localStorage.setItem("myProducts", JSON.stringify(productsContainer));
+
+        clearProduct();
+        displayProducts(productsContainer);
     }
     else
     {
@@ -122,34 +118,3 @@ function updateProduct()
 }
 
 
-function isValid()
-{
-    var nameRegex= /^[A-Z][A-Z a-z+0-9]{1,10}$/;
-    var PriceRegex= /^[1-9][0-9]{1,10}$/;
-    var errors ="";
-
-    if (nameRegex.test(productNameInput.value)==false)
-        {
-            errors +="<p>Name Is Not Valid</p>";
-
-        }
-
-    if (PriceRegex.test(productPriceInput.value)==false)
-        {
-            errors +="<p>Price Is Not Valid</p>";
-        }
-
-    if (errors.length > 0)
-        {
-            alertContainer.style.display="block";
-            alertContainer.innerHTML=errors;
-            return false;
-        }
-    else
-        {
-            alertContainer.style.display="none";
-            return true;
-        }
-
-
-}
