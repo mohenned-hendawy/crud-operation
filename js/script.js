@@ -10,6 +10,9 @@ var mainBtn = document.getElementById("mainBtn");
 
 var productsContainer;
 
+
+
+
 if(localStorage.getItem("myProducts") == null)
 {
     productsContainer = [];
@@ -116,5 +119,22 @@ function updateProduct()
     mainBtn.innerHTML = "add Product";
 
 }
+
+function validateProductName()
+{
+    var regex = /^[A-Z][a-z]{3,8}$/;
+    if( regex.test(productNameInput.value) == true && productNameInput.value != "" ) 
+    {
+
+        console.log("is valid");
+    }
+   else
+    {
+
+        
+    }
+
+}
+productNameInput.addEventListener("blur" ,validateProductName );
 
 
