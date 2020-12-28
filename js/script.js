@@ -33,4 +33,4 @@ function validateProductName()
 
 }
 
-productNameInput.addEventListener("keyup" ,validateProductName );;
+productNameInput.addEventListener("keyup" ,validateProductName );
