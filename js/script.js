@@ -3,6 +3,7 @@
 
 
 //this the simple crud project to learn you how to take step to be professional in javascrip
+//this the simple crud project to learn you how to take step to be professional in javascrip
 var productNameInput = document.getElementById("productNameInput");
 var productPriceInput = document.getElementById("productPriceInput");
 var productCategoryInput = document.getElementById("productCategoryInput");
